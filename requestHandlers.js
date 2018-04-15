@@ -1,4 +1,4 @@
-function start(response) {
+function start(response, postData) {
     console.log("Request handler 'start' was called.");
 
     var body = '<html>'+
@@ -21,8 +21,8 @@ function start(response) {
 
 function upload() {
     console.log("Request handler 'upload' was called");
-    response.writeHead(200, {'content-Type': 'text/plain'});
-    response.write('Hello Upload');
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.write("You've Sent: " + postData);
     response.end();
 }
 
