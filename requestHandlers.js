@@ -1,3 +1,5 @@
+var querystring = require("querystring");
+
 function start(response, postData) {
     console.log("Request handler 'start' was called.");
 
@@ -19,10 +21,11 @@ function start(response, postData) {
         response.end();
 }
 
-function upload() {
+function upload(response, postData) {
     console.log("Request handler 'upload' was called");
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("You've Sent: " + postData);
+    response.write("You've Sent the text: "+
+        quearystring.parse(postData).text);
     response.end();
 }
 
